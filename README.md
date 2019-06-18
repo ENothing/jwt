@@ -35,3 +35,6 @@ Don't forget to restart your php-fpm:
 ```
 sudo service php7-fpm restart
 ```
+
+### Reference
+https://github.com/firebase/php-jwt
