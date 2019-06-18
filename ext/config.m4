@@ -10,7 +10,9 @@ if test "$PHP_JWT" = "yes"; then
 
 	AC_DEFINE(HAVE_JWT, 1, [Whether you have Jwt])
 	jwt_sources="jwt.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c jwt/exception/domainexception.zep.c
+	jwt/exception/invalidargumentexception.zep.c
 	jwt/exception/jsonexception.zep.c
+	jwt/exception/tokenexception.zep.c
 	jwt/token.zep.c
 	jwt/utils.zep.c "
 	PHP_NEW_EXTENSION(jwt, $jwt_sources, $ext_shared,, )

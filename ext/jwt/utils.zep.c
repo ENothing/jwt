@@ -43,7 +43,7 @@ PHP_METHOD(Jwt_Utils, safeStrlen) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "8bit");
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_strlen", NULL, 8, str, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_strlen", NULL, 9, str, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -67,13 +67,13 @@ PHP_METHOD(Jwt_Utils, urlsafeB64Encode) {
 
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "base64_encode", NULL, 9, input);
+	ZEPHIR_CALL_FUNCTION(&_0, "base64_encode", NULL, 10, input);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "+/");
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "-_");
-	ZEPHIR_CALL_FUNCTION(&_3, "strtr", NULL, 10, &_0, &_1, &_2);
+	ZEPHIR_CALL_FUNCTION(&_3, "strtr", NULL, 11, &_0, &_1, &_2);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "=");
@@ -112,7 +112,7 @@ PHP_METHOD(Jwt_Utils, urlsafeB64Decode) {
 		ZEPHIR_INIT_VAR(&_0$$3);
 		ZVAL_STRING(&_0$$3, "=");
 		ZVAL_LONG(&_1$$3, padlen$$3);
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "str_repeat", NULL, 11, &_0$$3, &_1$$3);
+		ZEPHIR_CALL_FUNCTION(&_2$$3, "str_repeat", NULL, 12, &_0$$3, &_1$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_3$$3);
 		ZEPHIR_CONCAT_VV(&_3$$3, input, &_2$$3);
@@ -122,9 +122,9 @@ PHP_METHOD(Jwt_Utils, urlsafeB64Decode) {
 	ZVAL_STRING(&_4, "-_");
 	ZEPHIR_INIT_VAR(&_5);
 	ZVAL_STRING(&_5, "+/");
-	ZEPHIR_CALL_FUNCTION(&_6, "strtr", NULL, 10, input, &_4, &_5);
+	ZEPHIR_CALL_FUNCTION(&_6, "strtr", NULL, 11, input, &_4, &_5);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_FUNCTION("base64_decode", NULL, 12, &_6);
+	ZEPHIR_RETURN_CALL_FUNCTION("base64_decode", NULL, 13, &_6);
 	zephir_check_call_status();
 	RETURN_MM();
 

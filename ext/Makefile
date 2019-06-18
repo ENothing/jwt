@@ -11,7 +11,7 @@ SHLIB_DL_SUFFIX_NAME = so
 ZEND_EXT_TYPE = zend_extension
 RE2C = re2c
 AWK = gawk
-shared_objects_jwt = jwt.lo kernel/main.lo kernel/memory.lo kernel/exception.lo kernel/debug.lo kernel/backtrace.lo kernel/object.lo kernel/array.lo kernel/string.lo kernel/fcall.lo kernel/require.lo kernel/file.lo kernel/operators.lo kernel/math.lo kernel/concat.lo kernel/variables.lo kernel/filter.lo kernel/iterator.lo kernel/time.lo kernel/exit.lo jwt/exception/domainexception.lo jwt/exception/jsonexception.lo jwt/token.lo jwt/utils.lo
+shared_objects_jwt = jwt.lo kernel/main.lo kernel/memory.lo kernel/exception.lo kernel/debug.lo kernel/backtrace.lo kernel/object.lo kernel/array.lo kernel/string.lo kernel/fcall.lo kernel/require.lo kernel/file.lo kernel/operators.lo kernel/math.lo kernel/concat.lo kernel/variables.lo kernel/filter.lo kernel/iterator.lo kernel/time.lo kernel/exit.lo jwt/exception/domainexception.lo jwt/exception/invalidargumentexception.lo jwt/exception/jsonexception.lo jwt/exception/tokenexception.lo jwt/token.lo jwt/utils.lo
 PHP_PECL_EXTENSION = jwt
 JWT_SHARED_LIBADD =
 PHP_MODULES = $(phplibdir)/jwt.la
@@ -232,8 +232,12 @@ kernel/exit.lo: /mnt/d/document/www/zephir/jwt/ext/kernel/exit.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/kernel/exit.c -o kernel/exit.lo 
 jwt/exception/domainexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/domainexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/domainexception.zep.c -o jwt/exception/domainexception.lo 
+jwt/exception/invalidargumentexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/invalidargumentexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/invalidargumentexception.zep.c -o jwt/exception/invalidargumentexception.lo 
 jwt/exception/jsonexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/jsonexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/jsonexception.zep.c -o jwt/exception/jsonexception.lo 
+jwt/exception/tokenexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/tokenexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/tokenexception.zep.c -o jwt/exception/tokenexception.lo 
 jwt/token.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/token.zep.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/token.zep.c -o jwt/token.lo 
 jwt/utils.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/utils.zep.c

@@ -40,8 +40,12 @@ kernel/exit.lo: /mnt/d/document/www/zephir/jwt/ext/kernel/exit.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/kernel/exit.c -o kernel/exit.lo 
 jwt/exception/domainexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/domainexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/domainexception.zep.c -o jwt/exception/domainexception.lo 
+jwt/exception/invalidargumentexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/invalidargumentexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/invalidargumentexception.zep.c -o jwt/exception/invalidargumentexception.lo 
 jwt/exception/jsonexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/jsonexception.zep.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/jsonexception.zep.c -o jwt/exception/jsonexception.lo 
+jwt/exception/tokenexception.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/exception/tokenexception.zep.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/exception/tokenexception.zep.c -o jwt/exception/tokenexception.lo 
 jwt/token.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/token.zep.c
 	$(LIBTOOL) --mode=compile $(CC)  -I. -I/mnt/d/document/www/zephir/jwt/ext $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /mnt/d/document/www/zephir/jwt/ext/jwt/token.zep.c -o jwt/token.lo 
 jwt/utils.lo: /mnt/d/document/www/zephir/jwt/ext/jwt/utils.zep.c

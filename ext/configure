@@ -4061,7 +4061,9 @@ if test "$PHP_JWT" = "yes"; then
 $as_echo "#define HAVE_JWT 1" >>confdefs.h
 
 	jwt_sources="jwt.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c jwt/exception/domainexception.zep.c
+	jwt/exception/invalidargumentexception.zep.c
 	jwt/exception/jsonexception.zep.c
+	jwt/exception/tokenexception.zep.c
 	jwt/token.zep.c
 	jwt/utils.zep.c "
 

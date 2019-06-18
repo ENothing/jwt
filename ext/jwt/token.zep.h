@@ -5,6 +5,7 @@ ZEPHIR_INIT_CLASS(Jwt_Token);
 
 PHP_METHOD(Jwt_Token, test);
 PHP_METHOD(Jwt_Token, encode);
+PHP_METHOD(Jwt_Token, decode);
 PHP_METHOD(Jwt_Token, jsonEncode);
 PHP_METHOD(Jwt_Token, jsonDecode);
 PHP_METHOD(Jwt_Token, sign);
@@ -25,6 +26,12 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_jwt_token_encode, 0, 0, 2)
 #endif
 	ZEND_ARG_INFO(0, keyId)
 	ZEND_ARG_INFO(0, head)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_jwt_token_decode, 0, 0, 2)
+	ZEND_ARG_INFO(0, jwt)
+	ZEND_ARG_INFO(0, key)
+	ZEND_ARG_ARRAY_INFO(0, allowed_algs, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_jwt_token_jsonencode, 0, 0, 1)
@@ -59,6 +66,7 @@ ZEND_END_ARG_INFO()
 ZEPHIR_INIT_FUNCS(jwt_token_method_entry) {
 	PHP_ME(Jwt_Token, test, arginfo_jwt_token_test, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Jwt_Token, encode, arginfo_jwt_token_encode, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
+	PHP_ME(Jwt_Token, decode, arginfo_jwt_token_decode, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Jwt_Token, jsonEncode, arginfo_jwt_token_jsonencode, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Jwt_Token, jsonDecode, arginfo_jwt_token_jsondecode, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Jwt_Token, sign, arginfo_jwt_token_sign, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)

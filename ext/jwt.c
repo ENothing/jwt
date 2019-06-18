@@ -24,7 +24,9 @@
 
 
 zend_class_entry *jwt_exception_domainexception_ce;
+zend_class_entry *jwt_exception_invalidargumentexception_ce;
 zend_class_entry *jwt_exception_jsonexception_ce;
+zend_class_entry *jwt_exception_tokenexception_ce;
 zend_class_entry *jwt_token_ce;
 zend_class_entry *jwt_utils_ce;
 
@@ -39,7 +41,9 @@ static PHP_MINIT_FUNCTION(jwt)
 	REGISTER_INI_ENTRIES();
 	zephir_module_init();
 	ZEPHIR_INIT(Jwt_Exception_DomainException);
+	ZEPHIR_INIT(Jwt_Exception_InvalidArgumentException);
 	ZEPHIR_INIT(Jwt_Exception_JsonException);
+	ZEPHIR_INIT(Jwt_Exception_TokenException);
 	ZEPHIR_INIT(Jwt_Token);
 	ZEPHIR_INIT(Jwt_Utils);
 	

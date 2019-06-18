@@ -3,6 +3,7 @@ namespace Jwt;
 use Jwt\Exception\DomainException;
 use Jwt\Exception\JsonException;
 use Jwt\Exception\InvalidArgumentException;
+use Jwt\Exception\TokenException;
 
 class Token
 {
@@ -63,12 +64,62 @@ class Token
         }
         var token;
         let token = explode(".",jwt);
+        if count(token) != 3{
+            throw new TokenException("Wrong token");
+        }
 
+        var header;
+        let header = self::jsonDecode(Utils::urlsafeB64Decode(token[0]));
+        if null === header {
+            throw new TokenException("Invalid header encoding");
+        }
+        var payload;
+        let payload = self::jsonDecode(Utils::urlsafeB64Decode(token[1]));
+        if null === payload {
+            throw new TokenException("Invalid claims encoding");
+        }
+        var sig;
+        let sig = Utils::urlsafeB64Decode(token[2]);
+        if false === sig {
+            throw new TokenException("Invalid signature encoding");
+        }
+        if empty header->alg{
+            throw new TokenException("Empty algorithm");
+        }
+        if !isset self::algs[header->alg] {
+            throw new TokenException("Algorithm not supported");
+        }
+        if !in_array(header->alg,allowed_algs){
+            throw new TokenException("Algorithm not allowed");
+        }
+        if is_array(key){
+            if isset header->kid{
+                if !isset key[header->kid]{
+                    throw new TokenException("kid nvalid, unable to lookup correct key");
+                }
+                let key = key[header->kid];
+            }else{
+                throw new TokenException("kid empty, unable to lookup correct key");
+            }
+        }
 
+        if self::verify(token[0].token[1],sig,key,header->alg){
+            throw new TokenException("Signature verification failed");
+        }
 
+        if isset payload->nbf && payload->nbf > (timestamp + self::leeway){
+            throw new TokenException("Cannot handle token nbf -- ".payload->nbf);
+        }
+
+        if isset payload->iat && payload->iat > (timestamp + self::leeway){
+            throw new TokenException("Cannot handle token iat -- ".payload->iat);
+        }
+        if isset payload->exp && payload->exp < (timestamp - self::leeway){
+            throw new TokenException("Token expired");
+        }
+
+        return payload;
     }
-
-
 
      public static function jsonEncode(var input){
          var json;
@@ -148,8 +199,5 @@ class Token
             throw new DomainException("Algorithm not supported");
         }
     }
-
-
-
 
 }

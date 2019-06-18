@@ -10,7 +10,7 @@ if (PHP_JWT != "no") {
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/jwt/exception", "domainexception.zep.c jsonexception.zep.c", "jwt");
+  ADD_SOURCES(configure_module_dirname + "/jwt/exception", "domainexception.zep.c invalidargumentexception.zep.c jsonexception.zep.c tokenexception.zep.c", "jwt");
 	ADD_SOURCES(configure_module_dirname + "/jwt", "token.zep.c utils.zep.c", "jwt");
   ADD_FLAG("CFLAGS_JWT", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
