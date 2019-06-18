@@ -1,5 +1,3 @@
-reference https://github.com/firebase/php-jwt
-
 ### System Requirements
 
 To build it you need the following requirements:
