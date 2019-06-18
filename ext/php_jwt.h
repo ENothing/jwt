@@ -13,9 +13,9 @@
 #define PHP_JWT_NAME        "jwt"
 #define PHP_JWT_VERSION     "0.0.1"
 #define PHP_JWT_EXTNAME     "jwt"
-#define PHP_JWT_AUTHOR      ""
+#define PHP_JWT_AUTHOR      "Eric-Nothing"
 #define PHP_JWT_ZEPVERSION  "0.11.12-1e3bafd"
-#define PHP_JWT_DESCRIPTION ""
+#define PHP_JWT_DESCRIPTION "json web token"
 
 
 
