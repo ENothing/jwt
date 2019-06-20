@@ -34,5 +34,30 @@ Don't forget to restart your php-fpm:
 sudo service php7-fpm restart
 ```
 
+
+Example
+-------
+```php
+<?php
+
+$key = "example_key";
+$token = array(
+    "iss" => "http://example.org",
+    "aud" => "http://example.com",
+    "iat" => 1356999524,
+    "nbf" => 1357000000
+);
+
+$jwt = JWT\Token::encode($token, $key);
+$decoded = JWT\Token::decode($jwt, $key, ['HS256']);
+
+print_r($decoded);
+
+JWT\Token::$leeway = 60; // $leeway in seconds
+$decoded = JWT\Token::decode($jwt, $key, ['HS256']);
+```
+
+
+
 ### Reference
 https://github.com/firebase/php-jwt
